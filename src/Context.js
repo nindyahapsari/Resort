@@ -15,6 +15,13 @@ class RoomProvider extends Component {
 
   componentDidMount() {
     let rooms = this.formatData(items);
+    let featuredRooms = rooms.filter(room => room.featured === true);
+    this.setState({
+      rooms,
+      sortedRooms: rooms,
+      featuredRooms,
+      loading: false
+    });
   }
 
   formatData(arr) {
@@ -39,5 +46,3 @@ class RoomProvider extends Component {
 const RoomConsumer = RoomContext.Consumer;
 
 export { RoomContext, RoomProvider, RoomConsumer };
-
-// Video: 02:02:05
